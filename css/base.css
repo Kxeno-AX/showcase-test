@@ -4,7 +4,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif; }
 
 :root {
-  /* Primary palette (green / red / black) */
   --bg-deep: #070a08;
   --bg-panel: #0e1410;
   --bg-panel-light: #141d16;
@@ -15,7 +14,6 @@
   --red: #e03a3a;
   --red-glow: #ff6b6b;
 
-  /* Secondary palette */
   --orange: #e8943a;
   --purple: #9b5de5;
   --blue: #3aa0e8;
@@ -25,7 +23,6 @@
   --text-muted: #667a6e;
 
   --shadow: 0 10px 30px rgba(0,0,0,0.65);
-  --radius: 0; /* angular — no rounding */
   --transition: all 0.2s ease;
 }
 
@@ -44,9 +41,7 @@ body {
 
 .app { max-width: 1440px; margin: 0 auto; padding: 1.5rem; }
 
-.page { display: none; animation: fadeIn 0.3s ease; }
-.page.active { display: block; }
-
+.page { animation: fadeIn 0.3s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
 .section-title {
@@ -61,7 +56,6 @@ body {
 .page-head h1 { font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 0.6rem; }
 .page-head p { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.3rem; }
 
-/* Toast */
 .toast-container {
   position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
   z-index: 1000; display: flex; flex-direction: column; gap: 0.6rem; align-items: center; pointer-events: none;
@@ -75,7 +69,6 @@ body {
 .toast i { color: var(--green); }
 @keyframes toastIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Back to top */
 .back-to-top {
   position: fixed; bottom: 1.5rem; right: 1.5rem; width: 46px; height: 46px;
   background: var(--green); color: #04120a; border: none; display: flex; align-items: center; justify-content: center;
@@ -86,7 +79,6 @@ body {
 .back-to-top.visible { opacity: 1; pointer-events: auto; }
 .back-to-top:hover { background: var(--green-glow); transform: translateY(-3px); }
 
-/* Footer */
 .site-footer {
   max-width: 1440px; margin: 0 auto; padding: 1.5rem;
   border-top: 1px solid var(--border-dim);
@@ -99,7 +91,6 @@ body {
 }
 .site-footer button:hover { color: var(--green); }
 
-/* Empty-state reusable */
 .empty-state {
   text-align: center; padding: 3rem 1.5rem; color: var(--text-muted);
   background: var(--bg-panel); border: 1px dashed var(--border-dim); margin-bottom: 2rem;

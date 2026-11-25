@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact // NEXUS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/buttons.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+</head>
+<body data-page="contact">
+  <main class="app">
+    <section class="page theme-contact">
+      <div class="page-head">
+        <h1><i class="fas fa-envelope"></i> Contact</h1>
+        <p>Open for freelance and collaboration.</p>
+      </div>
+
+      <div class="contact-layout">
+        <form class="contact-form angular-border" onsubmit="event.preventDefault(); submitContact();">
+          <label>
+            <span>Name</span>
+            <input type="text" id="contactName" placeholder="Your name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" id="contactEmail" placeholder="you@domain.com" required />
+          </label>
+          <label>
+            <span>Project type</span>
+            <select id="contactType">
+              <option>Art / Illustration</option>
+              <option>Sound / Audio</option>
+              <option>Video / Motion</option>
+              <option>Game Development</option>
+              <option>Design</option>
+              <option>Photography</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea id="contactMsg" rows="5" placeholder="Tell me about the project..." required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary angular-border">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+
+        <aside class="contact-side">
+          <h3><i class="fas fa-link"></i> Elsewhere</h3>
+          <button class="social-btn angular-border" onclick="comingSoon('Discord')"><i class="fab fa-discord"></i> Discord</button>
+          <button class="social-btn angular-border" onclick="comingSoon('GitHub')"><i class="fab fa-github"></i> GitHub</button>
+          <button class="social-btn angular-border" onclick="comingSoon('ArtStation')"><i class="fab fa-artstation"></i> ArtStation</button>
+          <button class="social-btn angular-border" onclick="comingSoon('YouTube')"><i class="fab fa-youtube"></i> YouTube</button>
+          <div class="contact-note">
+            <i class="fas fa-circle-info"></i>
+            <p>Links are placeholders and will be wired up later.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <script src="js/shell.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

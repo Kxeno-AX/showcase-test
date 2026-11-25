@@ -1,7 +1,6 @@
 /* =========================================================
    BUTTONS.CSS — animated buttons + animated angular borders
    ========================================================= */
-
 .btn {
   display: inline-flex; align-items: center; gap: 0.55rem;
   padding: 0.8rem 1.6rem; font-size: 0.8rem; font-weight: 700;
@@ -10,19 +9,11 @@
   position: relative;
   clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
 }
-
-.btn-primary {
-  background: var(--green); color: #04120a;
-  box-shadow: 0 0 22px rgba(47,214,122,0.35);
-}
+.btn-primary { background: var(--green); color: #04120a; box-shadow: 0 0 22px rgba(47,214,122,0.35); }
 .btn-primary:hover { background: var(--green-glow); box-shadow: 0 0 32px rgba(109,255,176,0.6); transform: translateY(-2px); }
-
-.btn-ghost {
-  background: transparent; color: var(--text-primary); border-color: var(--border-dim);
-}
+.btn-ghost { background: transparent; color: var(--text-primary); border-color: var(--border-dim); }
 .btn-ghost:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
 
-/* Social buttons (contact page) */
 .social-btn {
   width: 100%; justify-content: flex-start;
   background: var(--bg-panel); color: var(--text-primary); border: 1px solid var(--border-dim);
@@ -34,58 +25,22 @@
 .social-btn:hover { border-color: var(--green); color: var(--green); background: var(--bg-panel-light); transform: translateX(4px); }
 .social-btn i { width: 1.1rem; text-align: center; }
 
-/* ---------------------------------------------------------
-   ANIMATED ANGULAR BORDER
-   Wraps a pseudo-element that draws a rotating/conic
-   highlight around the sharp-cornered shape.
-   --------------------------------------------------------- */
-.angular-border {
-  position: relative;
-  overflow: hidden;
-}
+.angular-border { position: relative; overflow: hidden; }
 .angular-border::before {
-  content: '';
-  position: absolute;
-  inset: -200%;
+  content: ''; position: absolute; inset: -200%;
   background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    var(--green) 40deg,
-    transparent 90deg,
-    transparent 180deg,
-    var(--red) 220deg,
-    transparent 270deg,
-    transparent 360deg
+    from 0deg, transparent 0deg, var(--green) 40deg, transparent 90deg,
+    transparent 180deg, var(--red) 220deg, transparent 270deg, transparent 360deg
   );
-  animation: spinBorder 4s linear infinite;
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.25s ease;
+  animation: spinBorder 4s linear infinite; z-index: 0; opacity: 0; transition: opacity 0.25s ease;
 }
-.angular-border:hover::before,
-.angular-border:focus-visible::before { opacity: 1; }
-
-/* Inner mask so the animated border reads as a thin frame */
+.angular-border:hover::before, .angular-border:focus-visible::before { opacity: 1; }
 .angular-border::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  background: var(--bg-panel);
-  clip-path: inherit;
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.25s ease;
+  content: ''; position: absolute; inset: 2px; background: var(--bg-panel);
+  clip-path: inherit; z-index: 0; opacity: 0; transition: opacity 0.25s ease;
 }
 .angular-border:hover::after { opacity: 1; }
-
-/* Content sits above the border layers */
 .angular-border > * { position: relative; z-index: 1; }
-
-/* For primary button the inner fill should stay green */
 .btn-primary.angular-border::after { background: var(--green); }
-
 @keyframes spinBorder { to { transform: rotate(360deg); } }
-
-@media (prefers-reduced-motion: reduce) {
-  .angular-border::before { animation: none; }
-}
+@media (prefers-reduced-motion: reduce) { .angular-border::before { animation: none; } }

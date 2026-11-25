@@ -1,61 +1,48 @@
 /* =========================================================
-   PAGES.CSS — per-discipline themes (remixed from space base)
+   PAGES.CSS — per-discipline themes + shared gallery/list styles
    ========================================================= */
-
-/* ART — orange / warm secondary */
 .theme-art .page-head h1 i { color: var(--orange); }
 .theme-art .page-head { border-left: 4px solid var(--orange); padding-left: 1rem; }
 
-/* AUDIO — blue secondary */
 .theme-audio .page-head h1 i { color: var(--blue); }
 .theme-audio .page-head { border-left: 4px solid var(--blue); padding-left: 1rem; }
 
-/* VIDEO — red primary accent */
 .theme-video .page-head h1 i { color: var(--red); }
 .theme-video .page-head { border-left: 4px solid var(--red); padding-left: 1rem; }
 
-/* GAMES — green/red combo */
 .theme-games .page-head h1 i { color: var(--green); }
 .theme-games .page-head { border-left: 4px solid var(--green); padding-left: 1rem; }
 
-/* DESIGN — purple secondary */
 .theme-design .page-head h1 i { color: var(--purple); }
 .theme-design .page-head { border-left: 4px solid var(--purple); padding-left: 1rem; }
 
-/* PHOTO — blue/purple */
 .theme-photo .page-head h1 i { color: var(--purple); }
 .theme-photo .page-head { border-left: 4px solid var(--blue); padding-left: 1rem; }
 
-/* Shared gallery + list grids */
-.gallery-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 0.85rem; margin-bottom: 2.5rem;
-}
-.list-grid {
-  display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2.5rem;
-}
+.theme-art    { --page-accent: var(--orange); }
+.theme-audio  { --page-accent: var(--blue); }
+.theme-video  { --page-accent: var(--red); }
+.theme-games  { --page-accent: var(--green); }
+.theme-design { --page-accent: var(--purple); }
+.theme-photo  { --page-accent: var(--blue); }
 
-/* Generic placeholder tile used by gallery pages */
+/* Gallery grid (image-heavy pages: art, video, design, photo) */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.85rem; margin-bottom: 2.5rem; }
+
 .tile {
   background: var(--bg-panel); border: 1px solid var(--border-dim);
-  padding: 1rem; min-height: 160px; display: flex; flex-direction: column; justify-content: space-between;
-  cursor: pointer; transition: var(--transition); text-align: left; color: inherit; font-family: inherit;
+  display: flex; flex-direction: column; cursor: pointer; transition: var(--transition);
+  text-align: left; color: inherit; font-family: inherit; overflow: hidden;
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
 }
-.tile:hover { background: var(--bg-panel-light); border-color: var(--green); transform: translateY(-3px); }
-.tile .tile-icon { font-size: 1.3rem; color: var(--page-accent, var(--green)); }
-.tile .tile-title { font-size: 0.9rem; font-weight: 700; margin-top: 0.5rem; }
-.tile .tile-meta { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 0.35rem; }
+.tile:hover { background: var(--bg-panel-light); border-color: var(--page-accent, var(--green)); transform: translateY(-3px); }
+.tile .thumb { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #060a07; }
+.tile .tile-body { padding: 0.85rem 1rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.tile .tile-title { font-size: 0.9rem; font-weight: 700; }
+.tile .tile-meta { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
 
-/* Per-theme accent for tiles */
-.theme-art { --page-accent: var(--orange); }
-.theme-audio { --page-accent: var(--blue); }
-.theme-video { --page-accent: var(--red); }
-.theme-games { --page-accent: var(--green); }
-.theme-design { --page-accent: var(--purple); }
-.theme-photo { --page-accent: var(--blue); }
-
-/* List rows (audio, games) */
+/* List layout (audio, games) */
+.list-grid { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2.5rem; }
 .list-row {
   background: var(--bg-panel); border: 1px solid var(--border-dim); border-left: 3px solid var(--page-accent, var(--green));
   padding: 0.9rem 1.1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;

@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NEXUS // Creative Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- CSS (order matters: base first) -->
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/nav.css" />
   <link rel="stylesheet" href="css/buttons.css" />
@@ -13,250 +12,30 @@
   <link rel="stylesheet" href="css/pages.css" />
   <link rel="stylesheet" href="css/contact.css" />
 </head>
-<body>
-
-  <!-- =========================================================
-       SITE HEADER / NAVIGATION
-       ========================================================= -->
-  <header class="site-header">
-    <div class="header-inner">
-      <button class="brand" onclick="navigate('home')">
-        <span class="brand-mark"><i class="fas fa-meteor"></i></span>
-        <span class="brand-text">
-          <strong>NEXUS</strong>
-          <small>Creative Portfolio</small>
-        </span>
-      </button>
-
-      <nav class="main-nav" id="mainNav">
-        <button class="nav-btn active" data-nav="home" onclick="navigate('home')">
-          <i class="fas fa-house"></i> Home
-        </button>
-        <button class="nav-btn" data-nav="art" onclick="navigate('art')">
-          <i class="fas fa-palette"></i> Art
-        </button>
-        <button class="nav-btn" data-nav="audio" onclick="navigate('audio')">
-          <i class="fas fa-waveform"></i> Sound
-        </button>
-        <button class="nav-btn" data-nav="video" onclick="navigate('video')">
-          <i class="fas fa-film"></i> Video
-        </button>
-        <button class="nav-btn" data-nav="games" onclick="navigate('games')">
-          <i class="fas fa-gamepad"></i> Games
-        </button>
-        <button class="nav-btn" data-nav="design" onclick="navigate('design')">
-          <i class="fas fa-pen-ruler"></i> Design
-        </button>
-        <button class="nav-btn" data-nav="photo" onclick="navigate('photo')">
-          <i class="fas fa-camera"></i> Photo
-        </button>
-        <button class="nav-btn" data-nav="contact" onclick="navigate('contact')">
-          <i class="fas fa-envelope"></i> Contact
-        </button>
-      </nav>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </header>
-
+<body data-page="home">
   <main class="app">
-
-    <!-- =========================================================
-         PAGE: HOME  (sci-fi space theme)
-         ========================================================= -->
-    <section id="page-home" class="page active theme-space">
+    <section class="page theme-space">
       <section class="hero">
         <div class="hero-orbit" aria-hidden="true"></div>
         <div class="hero-grid" aria-hidden="true"></div>
         <p class="hero-kicker">// MULTI-DISCIPLINARY CREATIVE ENGINE</p>
         <h1>Full-spectrum <em>creative work</em> across art, sound, video, games &amp; design.</h1>
-        <p class="hero-sub">
-          One operator. A whole studio's worth of output. Explore the archive below.
-        </p>
+        <p class="hero-sub">One operator. A whole studio's worth of output. Explore the archive below.</p>
         <div class="hero-actions">
-          <button class="btn btn-primary angular-border" onclick="navigate('art')">
-            <i class="fas fa-rocket"></i> Enter Archive
-          </button>
-          <button class="btn btn-ghost angular-border" onclick="navigate('contact')">
-            <i class="fas fa-satellite-dish"></i> Get In Touch
-          </button>
+          <a class="btn btn-primary angular-border" href="art.html"><i class="fas fa-rocket"></i> Enter Archive</a>
+          <a class="btn btn-ghost angular-border" href="contact.html"><i class="fas fa-satellite-dish"></i> Get In Touch</a>
         </div>
       </section>
 
-      <!-- Skill / discipline overview -->
       <h2 class="section-title"><i class="fas fa-satellite"></i> Disciplines <span class="count">6 tracked</span></h2>
-      <div class="discipline-grid" id="disciplineGrid">
-        <!-- JS-injected discipline cards -->
-      </div>
+      <div class="discipline-grid" id="disciplineGrid"></div>
 
-      <!-- Featured project placeholders -->
       <h2 class="section-title"><i class="fas fa-star"></i> Featured Projects <span class="count">Placeholder</span></h2>
-      <div class="feature-grid" id="featureGrid">
-        <!-- JS-injected project cards -->
-      </div>
-
-      <!--
-        ============================================================
-        NON-PLACEHOLDER: future live data hooks go here later.
-        e.g. <div id="liveFeed"></div>
-        ============================================================
-      -->
+      <div class="feature-grid" id="featureGrid"></div>
     </section>
-
-    <!-- =========================================================
-         PAGE: ART
-         ========================================================= -->
-    <section id="page-art" class="page theme-art">
-      <div class="page-head">
-        <h1><i class="fas fa-palette"></i> Art &amp; Illustration</h1>
-        <p>2D/3D work, concept art, and visual development.</p>
-      </div>
-      <div class="gallery-grid" id="artGallery"></div>
-    </section>
-
-    <!-- =========================================================
-         PAGE: SOUND
-         ========================================================= -->
-    <section id="page-audio" class="page theme-audio">
-      <div class="page-head">
-        <h1><i class="fas fa-waveform"></i> Sound Design &amp; Audio</h1>
-        <p>Composition, SFX, and interactive audio.</p>
-      </div>
-      <div class="list-grid" id="audioList"></div>
-    </section>
-
-    <!-- =========================================================
-         PAGE: VIDEO
-         ========================================================= -->
-    <section id="page-video" class="page theme-video">
-      <div class="page-head">
-        <h1><i class="fas fa-film"></i> Video &amp; Motion</h1>
-        <p>Editing, motion graphics, and short form.</p>
-      </div>
-      <div class="gallery-grid" id="videoGallery"></div>
-    </section>
-
-    <!-- =========================================================
-         PAGE: GAMES
-         ========================================================= -->
-    <section id="page-games" class="page theme-games">
-      <div class="page-head">
-        <h1><i class="fas fa-gamepad"></i> Game Development</h1>
-        <p>Playable prototypes, jam builds, and systems work.</p>
-      </div>
-      <div class="list-grid" id="gamesList"></div>
-    </section>
-
-    <!-- =========================================================
-         PAGE: DESIGN
-         ========================================================= -->
-    <section id="page-design" class="page theme-design">
-      <div class="page-head">
-        <h1><i class="fas fa-pen-ruler"></i> Design</h1>
-        <p>UI/UX, branding, and graphic systems.</p>
-      </div>
-      <div class="gallery-grid" id="designGallery"></div>
-    </section>
-
-    <!-- =========================================================
-         PAGE: PHOTO
-         ========================================================= -->
-    <section id="page-photo" class="page theme-photo">
-      <div class="page-head">
-        <h1><i class="fas fa-camera"></i> Photography</h1>
-        <p>Editorial, product, and experimental work.</p>
-      </div>
-      <div class="gallery-grid" id="photoGallery"></div>
-    </section>
-
-    <!-- =========================================================
-         PAGE: CONTACT
-         ========================================================= -->
-    <section id="page-contact" class="page theme-contact">
-      <div class="page-head">
-        <h1><i class="fas fa-envelope"></i> Contact</h1>
-        <p>Open for freelance and collaboration.</p>
-      </div>
-
-      <div class="contact-layout">
-        <!-- Form (placeholder submit via toast) -->
-        <form class="contact-form angular-border" onsubmit="event.preventDefault(); submitContact();">
-          <label>
-            <span>Name</span>
-            <input type="text" id="contactName" placeholder="Your name" required />
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" id="contactEmail" placeholder="you@domain.com" required />
-          </label>
-          <label>
-            <span>Project type</span>
-            <select id="contactType">
-              <option>Art / Illustration</option>
-              <option>Sound / Audio</option>
-              <option>Video / Motion</option>
-              <option>Game Development</option>
-              <option>Design</option>
-              <option>Photography</option>
-              <option>Other</option>
-            </select>
-          </label>
-          <label class="full">
-            <span>Message</span>
-            <textarea id="contactMsg" rows="5" placeholder="Tell me about the project..." required></textarea>
-          </label>
-          <button type="submit" class="btn btn-primary angular-border">
-            <i class="fas fa-paper-plane"></i> Send Message
-          </button>
-        </form>
-
-        <!-- Social / external links (placeholders) -->
-        <aside class="contact-side">
-          <h3><i class="fas fa-link"></i> Elsewhere</h3>
-          <button class="social-btn angular-border" onclick="comingSoon('Discord')">
-            <i class="fab fa-discord"></i> Discord
-          </button>
-          <button class="social-btn angular-border" onclick="comingSoon('GitHub')">
-            <i class="fab fa-github"></i> GitHub
-          </button>
-          <button class="social-btn angular-border" onclick="comingSoon('ArtStation')">
-            <i class="fab fa-artstation"></i> ArtStation
-          </button>
-          <button class="social-btn angular-border" onclick="comingSoon('YouTube')">
-            <i class="fab fa-youtube"></i> YouTube
-          </button>
-          <div class="contact-note">
-            <i class="fas fa-circle-info"></i>
-            <p>Links are placeholders and will be wired up later.</p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
   </main>
 
-  <!-- =========================================================
-       FOOTER
-       ========================================================= -->
-  <footer class="site-footer">
-    <div>
-      <button onclick="navigate('home')">Home</button>
-      <button onclick="navigate('contact')">Contact</button>
-      <button onclick="comingSoon('Privacy')">Privacy</button>
-    </div>
-    <div>© 2025 NEXUS Portfolio · Placeholder build</div>
-  </footer>
-
-  <!-- Back to top -->
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <!-- Toast container -->
-  <div class="toast-container" id="toastContainer"></div>
-
-  <script src="js/app.js"></script>
+  <script src="js/shell.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

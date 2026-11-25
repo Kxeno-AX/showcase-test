@@ -1,0 +1,57 @@
+/* =========================================================
+   NAV.CSS — header, nav, mobile toggle
+   ========================================================= */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(7,10,8,0.92);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--green);
+}
+.header-inner {
+  max-width: 1440px; margin: 0 auto; padding: 0.7rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+
+.brand {
+  display: flex; align-items: center; gap: 0.7rem; background: none; border: none;
+  color: inherit; font-family: inherit; cursor: pointer; flex-shrink: 0;
+}
+.brand-mark {
+  width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--green); color: var(--green); font-size: 1rem;
+  box-shadow: 0 0 18px rgba(47,214,122,0.35);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.05; text-align: left; }
+.brand-text strong { font-size: 1.05rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-primary); }
+.brand-text small { font-size: 0.58rem; letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin-top: 2px; }
+
+.main-nav { display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; }
+.nav-btn {
+  background: none; border: none; color: var(--text-secondary);
+  font-family: inherit; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;
+  padding: 0.5rem 0.75rem; cursor: pointer; transition: var(--transition);
+  display: inline-flex; align-items: center; gap: 0.4rem; position: relative;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+.nav-btn:hover { color: var(--text-primary); background: rgba(47,214,122,0.08); }
+.nav-btn.active { color: var(--green); background: rgba(47,214,122,0.12); }
+.nav-btn.active::after {
+  content: ''; position: absolute; left: 0.75rem; right: 0.75rem; bottom: 0.15rem; height: 2px; background: var(--green);
+}
+
+.nav-toggle {
+  display: none; background: none; border: 1px solid var(--border-dim); color: var(--text-primary);
+  font-size: 1rem; padding: 0.5rem 0.75rem; cursor: pointer; transition: var(--transition);
+}
+.nav-toggle:hover { border-color: var(--green); color: var(--green); }
+
+@media (max-width: 1080px) {
+  .main-nav {
+    display: none; width: 100%; flex-direction: column; align-items: stretch;
+    padding-top: 0.5rem; border-top: 1px solid var(--border-dim); margin-top: 0.5rem;
+  }
+  .main-nav.open { display: flex; }
+  .nav-btn { justify-content: flex-start; }
+  .nav-toggle { display: block; }
+}
